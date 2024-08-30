@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Godinho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="card">
+    
+                <div class="cabecalho">
+                    <div class="nome">Arthur Godinho</div>
+                    <div class="email">arthurgodinhooliveira@gmail.com</div>
+                </div>
+    
+                <div class="apresentacao">
+                    <p><span id="cumprimento">Olá</span>! Sou o Arthur, formando em Sistemas para Internet no IFTO, e autodidata em <strong>criação de sites</strong> e <strong>design gráfigo</strong>. Veja alguns projetos <i class="bi bi-arrow-down-short"></i></p>
+                </div>
+    
+                <div class="projetos">
+                    <ul>
+                        <a href="https://casadev.com.br/" target="_blank">
+                            <li>
+                                <p>Blog casadev</p>
+                                <img src="./images/undraw_online_posts_re_7ucl.svg" alt="blog">
+                            </li>
+                        </a>
+                        <a href="https://loja.casadev.com.br/" target="_blank">
+                            <li>
+                                <p>Loja casadev</p>
+                                <img src="./images/undraw_web_shopping_re_owap.svg" alt="loja virtual">
+                            </li>
+                        </a>
+                        <a href="https://nsstylestore.com.br/" target="_blank">
+                            <li>
+                                <p>Ns Style Store</p>
+                                <img src="./images/undraw_web_shopping_re_owap.svg" alt="loja virtual">
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+
+                <div class="horario">
+                    <table>
+                        <caption>Sugestão de Horário</caption>
+                        <tbody>
+                            <tr>
+                                <td>Terça-feira</td>
+                                <td>19:30 às 23:30</td>
+                            </tr>
+                            <tr>
+                                <td>Quinta-feira</td>
+                                <td>19:30 às 23:30</td>
+                            </tr>
+                            <tr>
+                                <td>Sábado</td>
+                                <td>08:00 às 16:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <a href="https://wa.me/5563991016156/?text=Olá!" target="_blank" id="wpp_btn">
+                    Mais Informações<i class="bi bi-whatsapp"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    <script>
+        function atualizarCumprimento() {
+            const agora = new Date();
+            const horas = agora.getHours();
+            const cumprimento = document.getElementById('cumprimento');
+            const wppBtn = document.getElementById('wpp_btn');
+            let saudacao;
+
+            if (horas >= 6 && horas < 12) {
+                saudacao = 'Bom dia';
+            } else if (horas >= 12 && horas < 18) {
+                saudacao = 'Boa tarde';
+            } else {
+                saudacao = 'Boa noite';
+            }
+
+            cumprimento.textContent = saudacao;
+
+            // Atualiza o href do botão do WhatsApp com a saudação
+            const mensagem = encodeURIComponent(saudacao);
+            wppBtn.href = `https://wa.me/5563991016156/?text=${mensagem} Arthur!`;
+        }
+
+        // Chama a função para definir o cumprimento e atualizar o link ao carregar a página
+        atualizarCumprimento();
+
+        // Atualiza o cumprimento e o link a cada minuto
+        setInterval(atualizarCumprimento, 60000);
+    </script>
+</body>
+</html>
